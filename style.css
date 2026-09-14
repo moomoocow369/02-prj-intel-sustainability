@@ -98,7 +98,9 @@ body {
 	gap: 24px;
 	overflow-x: auto;
 	padding: 20px 8% 40px;
+	scroll-padding-inline: 8%;
 	scroll-snap-type: x mandatory;
+	overscroll-behavior-x: contain;
 	scrollbar-color: var(--intel-blue) var(--ice);
 }
 
@@ -112,10 +114,12 @@ body {
 	background: var(--white);
 	box-shadow: 0 8px 20px rgba(0, 60, 113, 0.08);
 	scroll-snap-align: start;
+	scroll-snap-stop: always;
 	transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.milestone-card:hover {
+.milestone-card:hover,
+.milestone-card:focus-within {
 	transform: translateY(-8px);
 	box-shadow: 0 16px 30px rgba(0, 60, 113, 0.18);
 }
@@ -149,6 +153,11 @@ body {
 .milestone-card:hover img {
 	transform: scale(1.04);
 	filter: saturate(1.1);
+}
+
+.milestone-card:focus-within {
+	outline: 3px solid rgba(0, 104, 181, 0.35);
+	outline-offset: 4px;
 }
 
 .milestone-card p {
@@ -196,6 +205,7 @@ body {
 	.timeline-track {
 		display: block;
 		padding: 0 7% 20px;
+		scroll-padding-inline: 7%;
 	}
 
 	.milestone-card {
